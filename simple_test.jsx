@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// constant
 const intro = (
     <div>
         <h1>Hello World?</h1>
@@ -13,6 +14,7 @@ const intro = (
     </div>
 )
 
+// components
 class ComponentStuff extends React.Component {
     constructor(props) {
         super(props)
@@ -46,6 +48,29 @@ class Component extends React.Component {
         )
     }
 }
+
+// props
+const CurrentDate = (props) => {
+  return (
+    <div>
+      <p>The current date is: {props.date}</p>
+    </div>
+  );
+};
+
+class Calendar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>What date is it?</h3>
+        <CurrentDate date={Date()}/>
+      </div>
+    );
+  }
+};
 
 // should render the intro element if there is the root id
 ReactDOM.render(intro, document.getElementById('root'));
