@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 // constant
 const intro = (
+    // antyhing can only have one engolfing tag
     <div>
         <h1>Hello World?</h1>
         <p>
@@ -43,6 +44,7 @@ class Component extends React.Component {
         return (
             <div>
                 <h2>A React Component</h2>
+                {/* child components are added with a custom tag */}
                 <ComponentStuff />
             </div>
         )
@@ -53,6 +55,7 @@ class Component extends React.Component {
 const CurrentDate = (props) => {
   return (
     <div>
+        {/* Using props for when it is used in a component */}
       <p>The current date is: {props.date}</p>
     </div>
   );
@@ -66,6 +69,7 @@ class Calendar extends React.Component {
     return (
       <div>
         <h3>What date is it?</h3>
+        {/* define something to be used in the custom tag */}
         <CurrentDate date={Date()}/>
       </div>
     );
@@ -77,3 +81,6 @@ ReactDOM.render(intro, document.getElementById('root'));
 
 // New component to add to the ReactDOM
 ReactDOM.render(<Component />, document.getElementById('component'));
+
+// component with props to add to the ReactDOM
+ReactDOM.render(<Calendar />, document.getElementById('calendar'));
