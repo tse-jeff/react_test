@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// constant
+// constant variable in javascript
 const intro = (
     // antyhing can only have one engolfing tag
     <div>
@@ -15,7 +15,9 @@ const intro = (
     </div>
 )
 
-// components
+// These are stateless components
+// instead of functions, they are classes which rids of their
+// "functional" name. They also need to extend the React Component
 class ComponentStuff extends React.Component {
     constructor(props) {
         super(props)
@@ -35,6 +37,8 @@ class ComponentStuff extends React.Component {
     }
 }
 
+// ComponentStuff is a child component because it is inside 
+// of Component
 class Component extends React.Component {
     constructor(props) {
         super(props)
@@ -51,7 +55,21 @@ class Component extends React.Component {
     }
 }
 
-// props
+// Stateless functional component:
+// it takes in props and returns JSX
+// This is actually a function written in arrow notation
+// alternatively it could be written as 
+/*
+function CurrentDate(props) {
+  ...
+}
+ */
+// or something like the following
+/*
+CurrentDate = function(props) {
+  ...
+}
+ */
 const CurrentDate = (props) => {
   return (
     <div>
@@ -60,6 +78,13 @@ const CurrentDate = (props) => {
     </div>
   );
 };
+// A default prop could be attached to a stateless functional 
+// component by using Compoenent.deafaultProps
+CurrentDate.defaultProps = {date: "1/1/21"};
+
+// the type of the props could also be declared before for type safety
+// this is done with Component.propTypes
+CurrentDate.propTypes = {date: PropTypes.string.isRequired};
 
 class Calendar extends React.Component {
   constructor(props) {
