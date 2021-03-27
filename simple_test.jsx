@@ -109,3 +109,6 @@ ReactDOM.render(<Component />, document.getElementById('component'));
 
 // component with props to add to the ReactDOM
 ReactDOM.render(<Calendar />, document.getElementById('calendar'));
+
+// server-side render
+ReactDOMServer.renderToString(<Calendar/>);
